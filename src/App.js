@@ -7,10 +7,10 @@ import React from 'react';
 const choice = {
   rock :{
     name:'rock',
-    img:"https://cdn-icons.flaticon.com/png/512/3562/premium/3562093.png?token=exp=1661068371~hmac=de72de4637b687279b0995719ddb5c89"},
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz0exxamAIjYSIg9EDaoUJp4-9jIoHmkW9GA&usqp=CAU"},
   scissors :{
     name:'scissors',
-    img:"https://cdn-icons.flaticon.com/png/512/4958/premium/4958040.png?token=exp=1661068343~hmac=3b2f23a39d0c6f567a4553d137947f84"},
+    img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnOmV8m0xrwKpkta4EblGMmPx37e2q9twnlw&usqp=CAU"},
   paper : {
     name :'paper',
     img:"https://cdn-icons-png.flaticon.com/512/2165/2165693.png" }
