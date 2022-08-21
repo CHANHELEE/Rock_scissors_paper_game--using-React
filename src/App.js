@@ -20,25 +20,56 @@ const choice = {
 
 function App() {
   const [userSelect, setUserSelect] = useState(null);
+  const [computerSelect, setComputerSelect] = useState(null);
+
+  const [resultState,setResultState] = useState("");
 
 
-  const play = (userChoice)=>{
 
-    setUserSelect(choice[userChoice]) ;
-    console.log(userSelect);
+
+  const play = (userChoices)=>{
+    let userChoice = choice[userChoices];
+    let computerChoice = choice[randomChoice()];
+    setUserSelect(userChoice) ;
+    setComputerSelect(computerChoice) ;
+    setResultState(returnState(userChoice, computerChoice));
+
+  }
+
+  const randomChoice = ()=> {
+    let itemArray = Object.keys(choice);
+    let randomIndex =Math.floor( Math.random()*itemArray.length);
+    return itemArray[randomIndex];
+
+  }
+
+  const returnState = (user,computer)=>{
+    if(user.name == computer.name){
+      return "DRAW"
+    }else if(user.name == "rock"){
+        return computer.name == "scissors" ? "WIN" : "LOSE";      
+    }else if(user.name == "paper"){
+      return computer.name == "rock" ? "WIN" : "LOSE";
+    }else if(user.name == "scissors"){
+      return computer.name == "paper"? "WIN" : "LOSE";
+    }
+
+
+    
   }
   return (
     <div>
       <div className="main">
-        <Box title="You" item ={userSelect}/>
-        <Box title="Computer" item ={userSelect}/>
+        <Box title="You" item ={userSelect} state = {resultState}/>
+        <Box title="Computer" item ={computerSelect} state={resultState}/>
       </div>
 
-      <div className="main">
-        <button onClick={()=>play("scissors")}>가위</button>
-        <button onClick={()=>play("rock")}>바위</button>
-        <button onClick={()=>play("paper")}>보</button>
-      </div>
+      <div className="text textMedia">어떤 것을 낼지 선택하세요.</div>
+      <div className={"button buttonMedia"}>
+          <button onClick={()=>play("scissors")}>가위</button>
+          <button onClick={()=>play("rock")}>바위</button>
+          <button onClick={()=>play("paper")}>보</button>
+        </div>
     </div>
   );
 }
